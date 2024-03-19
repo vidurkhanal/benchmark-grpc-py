@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package protos;
+
+service Srv {
+  rpc Ping(SimpleSrvRequest) returns (SimpleSrvRepsonse) {}
+}
+
+message SimpleSrvRequest {}
+
+message SimpleSrvRepsonse {
+  string message = 1;
+  string status = 2;
+}
