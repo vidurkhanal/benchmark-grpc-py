@@ -19,6 +19,11 @@ class SrvStub(object):
                 request_serializer=srv__pb2.SimpleSrvRequest.SerializeToString,
                 response_deserializer=srv__pb2.SimpleSrvRepsonse.FromString,
                 )
+        self.UploadFile = channel.stream_unary(
+                '/protos.Srv/UploadFile',
+                request_serializer=srv__pb2.FileChunk.SerializeToString,
+                response_deserializer=srv__pb2.SimpleSrvRepsonse.FromString,
+                )
 
 
 class SrvServicer(object):
@@ -30,12 +35,23 @@ class SrvServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def UploadFile(self, request_iterator, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_SrvServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'Ping': grpc.unary_unary_rpc_method_handler(
                     servicer.Ping,
                     request_deserializer=srv__pb2.SimpleSrvRequest.FromString,
+                    response_serializer=srv__pb2.SimpleSrvRepsonse.SerializeToString,
+            ),
+            'UploadFile': grpc.stream_unary_rpc_method_handler(
+                    servicer.UploadFile,
+                    request_deserializer=srv__pb2.FileChunk.FromString,
                     response_serializer=srv__pb2.SimpleSrvRepsonse.SerializeToString,
             ),
     }
@@ -61,6 +77,23 @@ class Srv(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/protos.Srv/Ping',
             srv__pb2.SimpleSrvRequest.SerializeToString,
+            srv__pb2.SimpleSrvRepsonse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UploadFile(request_iterator,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.stream_unary(request_iterator, target, '/protos.Srv/UploadFile',
+            srv__pb2.FileChunk.SerializeToString,
             srv__pb2.SimpleSrvRepsonse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

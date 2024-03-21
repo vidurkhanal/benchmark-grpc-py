@@ -14,17 +14,19 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\tsrv.proto\x12\x06protos\"\x12\n\x10SimpleSrvRequest\"4\n\x11SimpleSrvRepsonse\x12\x0f\n\x07message\x18\x01 \x01(\t\x12\x0e\n\x06status\x18\x02 \x01(\t2D\n\x03Srv\x12=\n\x04Ping\x12\x18.protos.SimpleSrvRequest\x1a\x19.protos.SimpleSrvRepsonse\"\x00\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\tsrv.proto\x12\x06protos\"\x19\n\tFileChunk\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\x0c\"\x12\n\x10SimpleSrvRequest\"4\n\x11SimpleSrvRepsonse\x12\x0f\n\x07message\x18\x01 \x01(\t\x12\x0e\n\x06status\x18\x02 \x01(\t2\x84\x01\n\x03Srv\x12=\n\x04Ping\x12\x18.protos.SimpleSrvRequest\x1a\x19.protos.SimpleSrvRepsonse\"\x00\x12>\n\nUploadFile\x12\x11.protos.FileChunk\x1a\x19.protos.SimpleSrvRepsonse\"\x00(\x01\x62\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'srv_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
   DESCRIPTOR._options = None
-  _globals['_SIMPLESRVREQUEST']._serialized_start=21
-  _globals['_SIMPLESRVREQUEST']._serialized_end=39
-  _globals['_SIMPLESRVREPSONSE']._serialized_start=41
-  _globals['_SIMPLESRVREPSONSE']._serialized_end=93
-  _globals['_SRV']._serialized_start=95
-  _globals['_SRV']._serialized_end=163
+  _globals['_FILECHUNK']._serialized_start=21
+  _globals['_FILECHUNK']._serialized_end=46
+  _globals['_SIMPLESRVREQUEST']._serialized_start=48
+  _globals['_SIMPLESRVREQUEST']._serialized_end=66
+  _globals['_SIMPLESRVREPSONSE']._serialized_start=68
+  _globals['_SIMPLESRVREPSONSE']._serialized_end=120
+  _globals['_SRV']._serialized_start=123
+  _globals['_SRV']._serialized_end=255
 # @@protoc_insertion_point(module_scope)

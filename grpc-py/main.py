@@ -11,6 +11,16 @@ class SrvServicer(pb2_grpc.SrvServicer):
     def Ping(self, request: pb2.SimpleSrvRequest, context):
         return pb2.SimpleSrvRepsonse(message="Pong", status="OK")
 
+    def UploadFile(self, request_iterator, context):
+        file_data = b""
+        for chunk in request_iterator:
+            file_data += chunk.data
+
+        with open("received_file.bin", "wb") as file:
+            file.write(file_data)
+
+        return pb2.SimpleSrvRepsonse(message="File Received Successfully.", status="OK")
+
 
 def serve():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
