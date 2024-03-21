@@ -5,7 +5,7 @@ clean_grp_stubs:
 	rm *_pb2*.*
 
 # load testing using ghz, n = number of connections, c = number of concurrent connections
-load_test:
+loadtest:
 	 ghz --insecure \--proto ./protos/srv.proto -n 10000 -c 1000 --call protos.Srv.Ping 0.0.0.0:50051
 
 
