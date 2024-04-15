@@ -1,0 +1,10 @@
+wrk -t8 -c1000 -d 3m -s request.lua http://localhost:8000/upload-file
+Running 3m test @ http://localhost:8000/upload-file
+  8 threads and 1000 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   222.14ms   85.53ms   2.00s    67.63%
+    Req/Sec   523.12    215.73     1.23k    69.25%
+  704926 requests in 3.00m, 110.25MB read
+  Socket errors: connect 0, read 6302, write 344, timeout 782
+Requests/sec:   3913.96
+Transfer/sec:    626.84KB
