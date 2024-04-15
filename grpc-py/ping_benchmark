@@ -1,0 +1,39 @@
+ghz --insecure \--proto ./protos/srv.proto -n 1000000 -c 1000 -z 3m --call protos.Srv.Ping 0.0.0.0:50051 --timeout=0
+
+Summary:
+  Count:	58282
+  Total:	180.01 s
+  Slowest:	3.54 s
+  Fastest:	3.00 s
+  Average:	3.09 s
+  Requests/sec:	323.78
+
+Response time histogram:
+  3000.365 [1]     |
+  3054.265 [10768] |∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎
+  3108.165 [25107] |∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎
+  3162.065 [13965] |∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎
+  3215.965 [5050]  |∎∎∎∎∎∎∎∎
+  3269.865 [1253]  |∎∎
+  3323.765 [284]   |
+  3377.665 [238]   |
+  3431.565 [423]   |∎
+  3485.465 [158]   |
+  3539.365 [35]    |
+
+Latency distribution:
+  10 % in 3.01 s 
+  25 % in 3.07 s 
+  50 % in 3.09 s 
+  75 % in 3.13 s 
+  90 % in 3.18 s 
+  95 % in 3.21 s 
+  99 % in 3.38 s 
+
+Status code distribution:
+  [OK]            57282 responses   
+  [Unavailable]   1000 responses    
+
+Error distribution:
+  [1000]   rpc error: code = Unavailable desc = error reading from server: read tcp 127.0.0.1:65430->127.0.0.1:50051: use of closed network connection   
+

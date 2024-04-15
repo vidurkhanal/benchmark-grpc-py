@@ -1,0 +1,39 @@
+sudo ./loadtest_file.sh
+
+Summary:
+  Count:	1609564
+  Total:	180.00 s
+  Slowest:	320.81 ms
+  Fastest:	3.57 ms
+  Average:	111.76 ms
+  Requests/sec:	8941.93
+
+Response time histogram:
+  3.566   [1]      |
+  35.291  [361]    |
+  67.015  [632]    |
+  98.739  [1747]   |
+  130.463 [977604] |∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎
+  162.187 [18530]  |∎
+  193.911 [165]    |
+  225.636 [113]    |
+  257.360 [491]    |
+  289.084 [230]    |
+  320.808 [126]    |
+
+Latency distribution:
+  10 % in 106.38 ms 
+  25 % in 108.28 ms 
+  50 % in 110.95 ms 
+  75 % in 114.31 ms 
+  90 % in 118.18 ms 
+  95 % in 121.94 ms 
+  99 % in 136.52 ms 
+
+Status code distribution:
+  [OK]         1608570 responses   
+  [Canceled]   994 responses       
+
+Error distribution:
+  [994]   rpc error: code = Canceled desc = grpc: the client connection is closing   
+
