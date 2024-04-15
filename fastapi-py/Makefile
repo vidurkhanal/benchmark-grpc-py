@@ -1,5 +1,10 @@
 start_server:
 	uvicorn main:app --reload
 
-loadtest:
-	plow http://127.0.0.1:8000/ping -c 1000 -n 10000 
+loadtest_ping:
+	plow -c 1000 -n 1000000 -d 3m http://localhost:8000/ping
+	# wrk -c1000 -d1m http://localhost:8000/ping --latency
+
+loadtest_file_upload:
+	wrk -t8 -c1000 -d 3m -s request.lua http://localhost:8000/upload-file
+
